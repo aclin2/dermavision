@@ -1,0 +1,115 @@
+Loading training set...
+/usr/local/lib/python3.10/dist-packages/torch/utils/data/sampler.py:64: UserWarning: `data_source` argument is not used and will be removed in 2.2.0.You may still have custom implementation that utilizes it.
+  warnings.warn("`data_source` argument is not used and will be removed in 2.2.0."
+
+Num images:  96
+Image shape: [3, 512, 512]
+Label shape: [0]
+
+Constructing networks...
+Setting up PyTorch plugin "bias_act_plugin"... /usr/local/lib/python3.10/dist-packages/torch/utils/cpp_extension.py:1967: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Done.
+Setting up PyTorch plugin "filtered_lrelu_plugin"... /usr/local/lib/python3.10/dist-packages/torch/utils/cpp_extension.py:1967: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Done.
+
+Generator                     Parameters  Buffers  Output shape         Datatype
+---                           ---         ---      ---                  ---     
+mapping.fc0                   262656      -        [8, 512]             float32 
+mapping.fc1                   262656      -        [8, 512]             float32 
+mapping                       -           512      [8, 16, 512]         float32 
+synthesis.input.affine        2052        -        [8, 4]               float32 
+synthesis.input               1048576     3081     [8, 1024, 36, 36]    float32 
+synthesis.L0_36_1024.affine   525312      -        [8, 1024]            float32 
+synthesis.L0_36_1024          1049600     157      [8, 1024, 36, 36]    float32 
+synthesis.L1_36_1024.affine   525312      -        [8, 1024]            float32 
+synthesis.L1_36_1024          1049600     157      [8, 1024, 36, 36]    float32 
+synthesis.L2_52_1024.affine   525312      -        [8, 1024]            float32 
+synthesis.L2_52_1024          1049600     169      [8, 1024, 52, 52]    float32 
+synthesis.L3_52_1024.affine   525312      -        [8, 1024]            float32 
+synthesis.L3_52_1024          1049600     157      [8, 1024, 52, 52]    float32 
+synthesis.L4_84_1024.affine   525312      -        [8, 1024]            float32 
+synthesis.L4_84_1024          1049600     169      [8, 1024, 84, 84]    float16 
+synthesis.L5_84_1024.affine   525312      -        [8, 1024]            float32 
+synthesis.L5_84_1024          1049600     157      [8, 1024, 84, 84]    float16 
+synthesis.L6_148_1024.affine  525312      -        [8, 1024]            float32 
+synthesis.L6_148_1024         1049600     169      [8, 1024, 148, 148]  float16 
+synthesis.L7_148_967.affine   525312      -        [8, 1024]            float32 
+synthesis.L7_148_967          991175      157      [8, 967, 148, 148]   float16 
+synthesis.L8_276_645.affine   496071      -        [8, 967]             float32 
+synthesis.L8_276_645          624360      169      [8, 645, 276, 276]   float16 
+synthesis.L9_276_431.affine   330885      -        [8, 645]             float32 
+synthesis.L9_276_431          278426      157      [8, 431, 276, 276]   float16 
+synthesis.L10_532_287.affine  221103      -        [8, 431]             float32 
+synthesis.L10_532_287         123984      169      [8, 287, 532, 532]   float16 
+synthesis.L11_532_192.affine  147231      -        [8, 287]             float32 
+synthesis.L11_532_192         55296       157      [8, 192, 532, 532]   float16 
+synthesis.L12_532_128.affine  98496       -        [8, 192]             float32 
+synthesis.L12_532_128         24704       25       [8, 128, 532, 532]   float16 
+synthesis.L13_512_128.affine  65664       -        [8, 128]             float32 
+synthesis.L13_512_128         16512       25       [8, 128, 512, 512]   float16 
+synthesis.L14_512_3.affine    65664       -        [8, 128]             float32 
+synthesis.L14_512_3           387         1        [8, 3, 512, 512]     float16 
+synthesis                     -           -        [8, 3, 512, 512]     float32 
+---                           ---         ---      ---                  ---     
+Total                         16665594    5588     -                    -       
+
+Setting up PyTorch plugin "upfirdn2d_plugin"... /usr/local/lib/python3.10/dist-packages/torch/utils/cpp_extension.py:1967: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Done.
+
+Discriminator  Parameters  Buffers  Output shape        Datatype
+---            ---         ---      ---                 ---     
+b512.fromrgb   256         16       [8, 64, 512, 512]   float16 
+b512.skip      8192        16       [8, 128, 256, 256]  float16 
+b512.conv0     36928       16       [8, 64, 512, 512]   float16 
+b512.conv1     73856       16       [8, 128, 256, 256]  float16 
+b512           -           16       [8, 128, 256, 256]  float16 
+b256.skip      32768       16       [8, 256, 128, 128]  float16 
+b256.conv0     147584      16       [8, 128, 256, 256]  float16 
+b256.conv1     295168      16       [8, 256, 128, 128]  float16 
+b256           -           16       [8, 256, 128, 128]  float16 
+b128.skip      131072      16       [8, 512, 64, 64]    float16 
+b128.conv0     590080      16       [8, 256, 128, 128]  float16 
+b128.conv1     1180160     16       [8, 512, 64, 64]    float16 
+b128           -           16       [8, 512, 64, 64]    float16 
+b64.skip       262144      16       [8, 512, 32, 32]    float16 
+b64.conv0      2359808     16       [8, 512, 64, 64]    float16 
+b64.conv1      2359808     16       [8, 512, 32, 32]    float16 
+b64            -           16       [8, 512, 32, 32]    float16 
+b32.skip       262144      16       [8, 512, 16, 16]    float32 
+b32.conv0      2359808     16       [8, 512, 32, 32]    float32 
+b32.conv1      2359808     16       [8, 512, 16, 16]    float32 
+b32            -           16       [8, 512, 16, 16]    float32 
+b16.skip       262144      16       [8, 512, 8, 8]      float32 
+b16.conv0      2359808     16       [8, 512, 16, 16]    float32 
+b16.conv1      2359808     16       [8, 512, 8, 8]      float32 
+b16            -           16       [8, 512, 8, 8]      float32 
+b8.skip        262144      16       [8, 512, 4, 4]      float32 
+b8.conv0       2359808     16       [8, 512, 8, 8]      float32 
+b8.conv1       2359808     16       [8, 512, 4, 4]      float32 
+b8             -           16       [8, 512, 4, 4]      float32 
+b4.mbstd       -           -        [8, 513, 4, 4]      float32 
+b4.conv        2364416     16       [8, 512, 4, 4]      float32 
+b4.fc          4194816     -        [8, 512]            float32 
+b4.out         513         -        [8, 1]              float32 
+---            ---         ---      ---                 ---     
+Total          28982849    480      -                   -       
+
+Setting up augmentation...
+Distributing across 1 GPUs...
+Setting up training phases...
+Exporting sample images...
+Initializing logs...
+Training for 25000 kimg...
+
+tick 0     kimg 0.0      time 4m 00s       sec/tick 58.0    sec/kimg 7244.68 maintenance 181.6  cpumem 2.59   gpumem 13.58  reserved 14.47  augment 0.000
+Evaluating metrics...
+{"results": {"fid50k_full": -1.346748258665827e+113}, "metric": "fid50k_full", "total_time": 5516.682476758957, "total_time_str": "1h 31m 57s", "num_gpus": 1, "snapshot_pkl": "network-snapshot-000000.pkl", "timestamp": 1726309674.8838649}
+tick 1     kimg 4.0      time 2h 15m 18s   sec/tick 2340.8  sec/kimg 585.20  maintenance 5537.2 cpumem 3.16   gpumem 11.87  reserved 14.19  augment 0.000
+tick 2     kimg 8.0      time 2h 54m 25s   sec/tick 2346.8  sec/kimg 586.71  maintenance 0.3    cpumem 3.16   gpumem 11.96  reserved 14.19  augment 0.003
+tick 3     kimg 12.0     time 3h 33m 32s   sec/tick 2347.1  sec/kimg 586.77  maintenance 0.3    cpumem 3.16   gpumem 11.98  reserved 14.19  augment 0.010
